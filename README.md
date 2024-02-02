@@ -1,9 +1,35 @@
 # htm.java
 
+Unofficial open source htm.java version (Berlin Brown)
 
+## Updates
+
+Currently can build with Maven:
+
+Will not use gradle
+
+```text
+Apache Maven 3.8.6
+
+Test Compile with Java 11, compile to Java8
+
+IDE Environment - Tested with Eclipse - Version: 2023-12 (4.30.0)
+
+At project root
+
+$ mvn clean package
+
+or
+
+$ mvn clean compile exec:java
+
+
+Unit and Integration tests will run
+
+```
 <br>
 
-#### [Official](https://github.com/numenta/htm.java/issues/193)  **Java&trade;** version of...
+#### [Official is Here](https://github.com/numenta/htm.java/issues/193)  **Java&trade;** version of...
 ## Hierarchical Temporal Memory [(HTM)](http://numenta.com/learn/principles-of-hierarchical-temporal-memory.html)
 
 Based on official version, fork for simplicity
@@ -13,8 +39,6 @@ Based on official version, fork for simplicity
 _**NOTE: Minimum JavaSE version is 8**_
 
 <br>
-
-
 
 ## Versioning
 (Tracked according to core algorithms)  
@@ -64,7 +88,6 @@ _The instructions on the above link **(Fork the htm.java repo)** provide detail 
 **In addition:** [a video is provided](https://www.youtube.com/watch?v=Yc3PKaT1knU) that explains Numenta's contributor rules and plenty of helpful tips on using git and other commands.
 
 ***
-
 
 [license]:LICENSE.txt
 [license img]:https://img.shields.io/badge/License-GNU%20Affero-blue.svg

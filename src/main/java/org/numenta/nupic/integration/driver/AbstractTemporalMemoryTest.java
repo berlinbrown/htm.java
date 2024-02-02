@@ -20,7 +20,7 @@
  * ---------------------------------------------------------------------
  */
 
-package org.numenta.nupic.integration;
+package org.numenta.nupic.integration.driver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,6 @@ public class AbstractTemporalMemoryTest {
     protected MonitoredTemporalMemory tm;
     
     public void init(Parameters overrides, PatternMachine pm) {
-    	
         this.parameters = createTMParams(overrides);
         this.connections = new Connections();
         parameters.apply(connections);
