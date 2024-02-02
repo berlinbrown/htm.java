@@ -1,0 +1,331 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.numenta:htm.java:jar:0.6.14
+[WARNING] 'dependencies.dependency.systemPath' for algorithmfoundry:algorithmfoundry-shade-culled:jar should not point at files within the project directory, ${project.basedir}/libs/algorithmfoundry-shade-culled-1.3.jar will be unresolvable by dependent projects @ line 141, column 19
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: algorithmfoundry:algorithmfoundry-shade-culled:jar -> duplicate declaration of version 1.3 @ line 136, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< org.numenta:htm.java >------------------------
+[INFO] Building htm.java 0.6.14
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ htm.java ---
+[INFO] Deleting C:\Users\berli\eclipse-workspace\htm.java\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ htm.java ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ htm.java ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 132 source files to C:\Users\berli\eclipse-workspace\htm.java\target\classes
+[INFO] /C:/Users/berli/eclipse-workspace/htm.java/src/main/java/org/numenta/nupic/util/Tuple.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/berli/eclipse-workspace/htm.java/src/main/java/org/numenta/nupic/util/Tuple.java: Recompile with -Xlint:deprecation for details.
+[INFO] /C:/Users/berli/eclipse-workspace/htm.java/src/main/java/org/numenta/nupic/monitor/MonitoredTemporalMemory.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/berli/eclipse-workspace/htm.java/src/main/java/org/numenta/nupic/monitor/MonitoredTemporalMemory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- exec-maven-plugin:3.1.0:java (default-cli) @ htm.java ---
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => active columns (correct)         | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|           # predicted => active cells (correct)          | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|                        # segments                        |   2273.0  |         0.0        |  2273.0 |  2273.0 |  227300.0 |
+|                        # synapses                        |  25003.0  |         0.0        | 25003.0 | 25003.0 | 2500300.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |     sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                     # active columns                     | 23.006689 |      1.4094599     |   21.0  |   25.0  |   6879.0   |
+|          # predicted => active columns (correct)         | 23.006689 |      1.4094599     |   21.0  |   25.0  |   6879.0   |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|           # predicted => active cells (correct)          | 23.006689 |      1.4094599     |   21.0  |   25.0  |   6879.0   |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|                        # segments                        |   6879.0  |         0.0        |  6879.0 |  6879.0 |  2063700.0 |
+|                        # synapses                        |  75669.0  |         0.0        | 75669.0 | 75669.0 | 22700700.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |     sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                     # active columns                     | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|          # predicted => active columns (correct)         | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|           # predicted => active cells (correct)          | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|                        # segments                        |   6833.0  |         0.0        |  6833.0 |  6833.0 |  2049900.0 |
+|                        # synapses                        |  75163.0  |         0.0        | 75163.0 | 75163.0 | 22548900.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => active columns (correct)         | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|           # predicted => active cells (correct)          | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|                        # segments                        |   2273.0  |         0.0        |  2273.0 |  2273.0 |  227300.0 |
+|                        # synapses                        |  25003.0  |         0.0        | 25003.0 | 25003.0 | 2500300.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |     sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+|                     # active columns                     | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|          # predicted => active columns (correct)         | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|           # predicted => active cells (correct)          | 23.006734 |      1.4118147     |   21.0  |   25.0  |   6833.0   |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|                        # segments                        |   6833.0  |         0.0        |  6833.0 |  6833.0 |  2049900.0 |
+|                        # synapses                        |  75163.0  |         0.0        | 75163.0 | 75163.0 | 22548900.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |     0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+------------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => active columns (correct)         | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|           # predicted => active cells (correct)          | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|                        # segments                        |   2273.0  |         0.0        |  2273.0 |  2273.0 |  227300.0 |
+|                        # synapses                        |  25003.0  |         0.0        | 25003.0 | 25003.0 | 2500300.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => active columns (correct)         | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|        # unpredicted => active columns (bursting)        |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|           # predicted => active cells (correct)          | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|                        # segments                        |   2273.0  |         0.0        |  2273.0 |  2273.0 |  227300.0 |
+|                        # synapses                        |  25003.0  |         0.0        | 25003.0 | 25003.0 | 2500300.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean   | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|          # predicted => active columns (correct)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|          # predicted => inactive columns (extra)         |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|        # unpredicted => active columns (bursting)        | 22.959596 |      1.3992725     |   21.0  |   25.0  |   2273.0  |
+|           # predicted => active cells (correct)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|           # predicted => inactive cells (extra)          |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|                        # segments                        |   2273.0  |         0.0        |  2273.0 |  2273.0 |  227300.0 |
+|                        # synapses                        |  25003.0  |         0.0        | 25003.0 | 25003.0 | 2500300.0 |
+| # predicted => active cells per column for each sequence |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |    0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+-----------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+-----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum    |
++----------------------------------------------------------+------------+--------------------+---------+---------+-----------+
+|                     # active columns                     | 22.7474747 |      1.4930373     |   20.0  |   25.0  |   2252.0  |
+|          # predicted => active columns (correct)         | 21.8484848 |      1.7942874     |   18.0  |   25.0  |   2163.0  |
+|          # predicted => inactive columns (extra)         |     1.0    |      1.063632      |   0.0   |   5.0   |    99.0   |
+|        # unpredicted => active columns (bursting)        |  0.8989899 |      1.0395701     |   0.0   |   5.0   |    89.0   |
+|           # predicted => active cells (correct)          | 21.8484848 |      1.7942874     |   18.0  |   25.0  |   2163.0  |
+|           # predicted => inactive cells (extra)          |     1.0    |      1.063632      |   0.0   |   5.0   |    99.0   |
+|                        # segments                        |   2264.0   |         0.0        |  2264.0 |  2264.0 |  226400.0 |
+|                        # synapses                        |   24931.0  |         0.0        | 24931.0 | 24931.0 | 2493100.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0    |
++----------------------------------------------------------+------------+--------------------+---------+---------+-----------+
+
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+|                          Metric                          |    mean    | standard deviation |   min  |   max  |    sum   |
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+|                     # active columns                     | 23.0526316 |      1.3366763     |  21.0  |  25.0  |   876.0  |
+|          # predicted => active columns (correct)         | 23.0526316 |      1.3366763     |  21.0  |  25.0  |   876.0  |
+|          # predicted => inactive columns (extra)         |     1.0    |      4.2488389     |   0.0  |  20.0  |   38.0   |
+|        # unpredicted => active columns (bursting)        |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
+|           # predicted => active cells (correct)          | 23.0526316 |      1.3366763     |  21.0  |  25.0  |   876.0  |
+|           # predicted => inactive cells (extra)          |     1.0    |      4.2488389     |   0.0  |  20.0  |   38.0   |
+|                        # segments                        |    780.0   |         0.0        |  780.0 |  780.0 |  31200.0 |
+|                        # synapses                        |   8580.0   |         0.0        | 8580.0 | 8580.0 | 343200.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 23.0526316 |      1.3366763     |   21.0  |   25.0  |   876.0  |
+|          # predicted => active columns (correct)         | 23.0526316 |      1.3366763     |   21.0  |   25.0  |   876.0  |
+|          # predicted => inactive columns (extra)         |  0.5263158 |      3.201454      |   0.0   |   20.0  |   20.0   |
+|        # unpredicted => active columns (bursting)        |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|           # predicted => active cells (correct)          | 23.0526316 |      1.3366763     |   21.0  |   25.0  |   876.0  |
+|           # predicted => inactive cells (extra)          |  0.5263158 |      3.201454      |   0.0   |   20.0  |   20.0   |
+|                        # segments                        |    991.0   |         0.0        |  991.0  |  991.0  |  39640.0 |
+|                        # synapses                        |   10901.0  |         0.0        | 10901.0 | 10901.0 | 436040.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+|                          Metric                          |    mean    | standard deviation |   min  |   max  |    sum   |
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+|                     # active columns                     | 23.0789474 |       1.28517      |  21.0  |  25.0  |   877.0  |
+|          # predicted => active columns (correct)         | 23.0789474 |       1.28517      |  21.0  |  25.0  |   877.0  |
+|          # predicted => inactive columns (extra)         |  0.8684211 |      3.7004342     |   0.0  |  18.0  |   33.0   |
+|        # unpredicted => active columns (bursting)        |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
+|           # predicted => active cells (correct)          | 23.0789474 |       1.28517      |  21.0  |  25.0  |   877.0  |
+|           # predicted => inactive cells (extra)          |  0.8684211 |      3.7004342     |   0.0  |  18.0  |   33.0   |
+|                        # segments                        |    777.0   |         0.0        |  777.0 |  777.0 |  31080.0 |
+|                        # synapses                        |   8547.0   |         0.0        | 8547.0 | 8547.0 | 341880.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0  |   0.0  |    0.0   |
++----------------------------------------------------------+------------+--------------------+--------+--------+----------+
+
+0  []
+1  []
+2  []
+3  []
+4  [7, 15, 22, 23, 27, 40, 47, 49, 58, 59, 61, 62, 82, 89, 92]
+5  []
+6  []
+7  []
+8  []
+9  []
+10  []
+11  []
+12  []
+13  []
+14  []
+15  []
+16  []
+17  []
+18  []
+19  []
+20  []
+21  []
+22  []
+23  [0, 4, 9, 12, 17, 34, 38, 39, 41, 44, 65, 68, 74, 76, 83, 88, 93, 99]
+24  []
+25  []
+26  []
+27  []
+28  []
+29  []
+30  []
+31  []
+32  []
+33  []
+34  []
+35  []
+36  []
+37  []
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 23.2105263 |      1.3795097     |   21.0  |   25.0  |   882.0  |
+|          # predicted => active columns (correct)         | 23.2105263 |      1.3795097     |   21.0  |   25.0  |   882.0  |
+|          # predicted => inactive columns (extra)         |  1.7631579 |      5.1423638     |   0.0   |   17.0  |   67.0   |
+|        # unpredicted => active columns (bursting)        |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|           # predicted => active cells (correct)          | 23.7105263 |      2.9904048     |   21.0  |   40.0  |   901.0  |
+|           # predicted => inactive cells (extra)          |  2.6578947 |      9.1285449     |   0.0   |   51.0  |   101.0  |
+|                        # segments                        |   1613.0   |         0.0        |  1613.0 |  1613.0 |  64520.0 |
+|                        # synapses                        |   17743.0  |         0.0        | 17743.0 | 17743.0 | 709720.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 23.2894737 |      1.3554548     |   21.0  |   25.0  |   885.0  |
+|          # predicted => active columns (correct)         | 23.2894737 |      1.3554548     |   21.0  |   25.0  |   885.0  |
+|          # predicted => inactive columns (extra)         |  1.8947368 |      5.5856464     |   0.0   |   21.0  |   72.0   |
+|        # unpredicted => active columns (bursting)        |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|           # predicted => active cells (correct)          | 23.6842105 |      2.8571725     |   21.0  |   39.0  |   900.0  |
+|           # predicted => inactive cells (extra)          |  2.2368421 |      6.6190881     |   0.0   |   27.0  |   85.0   |
+|                        # segments                        |   1443.0   |         0.0        |  1443.0 |  1443.0 |  57720.0 |
+|                        # synapses                        |   15873.0  |         0.0        | 15873.0 | 15873.0 | 634920.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 22.8947368 |      1.4471292     |   20.0  |   25.0  |   870.0  |
+|          # predicted => active columns (correct)         | 21.6315789 |      2.0827746     |   17.0  |   25.0  |   822.0  |
+|          # predicted => inactive columns (extra)         |  1.7105263 |      2.9460758     |   0.0   |   18.0  |   65.0   |
+|        # unpredicted => active columns (bursting)        |  1.2631579 |      1.2286966     |   0.0   |   4.0   |   48.0   |
+|           # predicted => active cells (correct)          | 21.6315789 |      2.0827746     |   17.0  |   25.0  |   822.0  |
+|           # predicted => inactive cells (extra)          |  1.7105263 |      2.9460758     |   0.0   |   18.0  |   65.0   |
+|                        # segments                        |    991.0   |         0.0        |  991.0  |  991.0  |  39640.0 |
+|                        # synapses                        |   10953.0  |         0.0        | 10953.0 | 10953.0 | 438120.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 23.0526316 |      1.3366763     |   21.0  |   25.0  |   876.0  |
+|          # predicted => active columns (correct)         |    23.0    |      1.3764944     |   21.0  |   25.0  |   874.0  |
+|          # predicted => inactive columns (extra)         |  7.9210526 |      4.4861282     |   2.0   |   28.0  |   301.0  |
+|        # unpredicted => active columns (bursting)        |  0.0526316 |      0.3201454     |   0.0   |   2.0   |    2.0   |
+|           # predicted => active cells (correct)          | 23.1315789 |      1.3797607     |   21.0  |   26.0  |   879.0  |
+|           # predicted => inactive cells (extra)          |  7.9473684 |      4.5476852     |   2.0   |   28.0  |   302.0  |
+|                        # segments                        |   1285.0   |         0.0        |  1285.0 |  1285.0 |  51400.0 |
+|                        # synapses                        |   16215.0  |         0.0        | 16215.0 | 16215.0 | 648600.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                          Metric                          |    mean    | standard deviation |   min   |   max   |    sum   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+|                     # active columns                     | 23.0526316 |      1.3366763     |   21.0  |   25.0  |   876.0  |
+|          # predicted => active columns (correct)         | 22.2105263 |      1.6084955     |   18.0  |   25.0  |   844.0  |
+|          # predicted => inactive columns (extra)         |  1.1578947 |      3.2079368     |   0.0   |   20.0  |   44.0   |
+|        # unpredicted => active columns (bursting)        |  0.8421053 |      0.7443229     |   0.0   |   3.0   |   32.0   |
+|           # predicted => active cells (correct)          | 22.2368421 |      1.6453157     |   18.0  |   25.0  |   845.0  |
+|           # predicted => inactive cells (extra)          |  1.1578947 |      3.2079368     |   0.0   |   20.0  |   44.0   |
+|                        # segments                        |    983.0   |         0.0        |  983.0  |  983.0  |  39320.0 |
+|                        # synapses                        |   10918.0  |         0.0        | 10918.0 | 10918.0 | 436720.0 |
+| # predicted => active cells per column for each sequence |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
+|   # sequences each predicted => active cells appears in  |     0.0    |         0.0        |   0.0   |   0.0   |    0.0   |
++----------------------------------------------------------+------------+--------------------+---------+---------+----------+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.048 s
+[INFO] Finished at: 2024-02-01T22:30:59-05:00
+[INFO] ------------------------------------------------------------------------
