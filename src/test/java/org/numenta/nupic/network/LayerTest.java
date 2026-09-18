@@ -81,6 +81,9 @@ import rx.subjects.PublishSubject;
  */
 public class LayerTest extends ObservableTestBase {
 
+    // These tests verify one processing stage: its sensor, encoders, algorithms,
+    // learning switches, emitted results, and interaction with other Layers.
+
     /** Total used for spatial pooler priming tests */
     private int TOTAL = 0;
 

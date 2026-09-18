@@ -42,6 +42,8 @@ import gnu.trove.list.array.TIntArrayList;
  * In the separation of data from logic, this class represents the data/state.
  */
 public class Connections implements Persistable {
+    // Plain English: this object is the HTM system's memory. It stores columns,
+    // cells, segments, synapses, permanence values, and current activity state.
     /** keep it simple */
     private static final long serialVersionUID = 1L;
     

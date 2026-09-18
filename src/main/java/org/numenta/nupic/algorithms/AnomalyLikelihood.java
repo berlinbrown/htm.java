@@ -97,6 +97,8 @@ import gnu.trove.map.TObjectDoubleMap;
  * @see MovingAverage
  */
 public class AnomalyLikelihood extends Anomaly {
+    // Plain English: compare recent anomaly scores with normal history and
+    // estimate how surprising the current behavior is.
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOG = LoggerFactory.getLogger(AnomalyLikelihood.class);
@@ -310,13 +312,22 @@ public class AnomalyLikelihood extends Anomaly {
             likelihoods[i++] = normalProbability(calc.getAverage(), (Statistic)params.get("distribution"));
         }
         
-        // Filter the likelihood values. First we prepend the historical likelihoods
-        // to the current set. Then we filter the values.  We peel off the likelihoods
-        // to return and the last windowSize values to store for later.
-        double[] likelihoods2 = ArrayUtils.concat(histLikelihoods, likelihoods);
-        double[] filteredLikelihoods = filterLikelihoods(likelihoods2);
+        // Think of this as giving the filter a short memory. It needs the most
+        // recent values from the previous call to decide whether a low likelihood
+        // is a new anomaly or merely part of an anomaly already being reported.
+        double[] currentAndHistoricalLikelihoods = ArrayUtils.concat(histLikelihoods, likelihoods);
+        double[] filteredLikelihoods = filterLikelihoods(currentAndHistoricalLikelihoods);
+
+        // Return only results for the new samples; the values prepended above
+        // supplied context and do not belong in this call's result.
         likelihoods = Arrays.copyOfRange(filteredLikelihoods, filteredLikelihoods.length - likelihoods.length, filteredLikelihoods.length);
-        double[] historicalLikelihoods = Arrays.copyOf(likelihoods2, likelihoods2.length - Math.min(windowSize, likelihoods2.length));
+
+        // Save the newest values for the next call. Keeping the first values here
+        // would make the detector repeatedly remember stale data.
+        int historyStart = currentAndHistoricalLikelihoods.length -
+            Math.min(windowSize, currentAndHistoricalLikelihoods.length);
+        double[] historicalLikelihoods = Arrays.copyOfRange(
+            currentAndHistoricalLikelihoods, historyStart, currentAndHistoricalLikelihoods.length);
         
         // Update the estimator
         AnomalyParams newParams = new AnomalyParams(
@@ -332,9 +343,8 @@ public class AnomalyLikelihood extends Anomaly {
     }
     
     /**
-     * Filter the list of raw (pre-filtered) likelihoods so that we only preserve
-     * sharp increases in likelihood. 'likelihoods' can be a numpy array of floats or
-     * a list of floats.
+     * Filters raw likelihoods so that a run of unusual readings is reported as one
+     * event instead of many repeated alarms.
      * 
      * @param likelihoods
      * @return
@@ -344,9 +354,9 @@ public class AnomalyLikelihood extends Anomaly {
     }
     
     /**
-     * Filter the list of raw (pre-filtered) likelihoods so that we only preserve
-     * sharp increases in likelihood. 'likelihoods' can be an array of floats or
-     * a list of floats.
+     * Filters raw likelihoods so that a run of unusual readings is reported as one
+     * event instead of many repeated alarms. The first unusual reading is retained;
+     * immediately following unusual readings are reduced to the yellow threshold.
      * 
      * @param likelihoods
      * @param redThreshold
@@ -354,6 +364,11 @@ public class AnomalyLikelihood extends Anomaly {
      * @return
      */
     public double[] filterLikelihoods(double[] likelihoods, double redThreshold, double yellowThreshold) {
+        // An empty batch is valid: there is simply nothing to filter.
+        if(likelihoods.length == 0) {
+            return new double[0];
+        }
+
         redThreshold = 1.0 - redThreshold;
         yellowThreshold = 1.0 - yellowThreshold;
         

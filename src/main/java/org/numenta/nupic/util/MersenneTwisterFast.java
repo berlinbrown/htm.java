@@ -181,6 +181,8 @@ import org.numenta.nupic.model.Persistable;
 
 public strictfp class MersenneTwisterFast implements Persistable, Cloneable
     {
+    // Plain English: a faster standalone version of the repeatable random
+    // generator. Unlike MersenneTwister, it does not extend java.util.Random.
     // Serialization
     private static final long serialVersionUID = -8219700664442619525L;  // locked as of Version 15
     

@@ -207,6 +207,8 @@ import org.numenta.nupic.monitor.mixin.Metric;
  * @see BasicTemporalMemoryTest
  */
 public class ExtensiveTemporalMemoryTest extends AbstractTemporalMemoryTest {
+    // This is the long-form behavior check: train Temporal Memory on complete
+    // sequences, replay them, and measure prediction quality and learned links.
     private static final PatternMachine PATTERN_MACHINE = new PatternMachine(100, 23, 300, true);
     
     private static final int VERBOSITY = 1;

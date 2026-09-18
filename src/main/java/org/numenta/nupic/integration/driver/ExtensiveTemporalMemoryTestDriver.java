@@ -202,6 +202,8 @@ import org.numenta.nupic.monitor.mixin.Metric;
  * @see BasicTemporalMemoryTest
  */
 public class ExtensiveTemporalMemoryTestDriver extends AbstractTemporalMemoryTest {
+	// Plain English: run the extensive Temporal Memory scenarios outside JUnit
+	// so a developer can watch progress and inspect results interactively.
 	
     private static final PatternMachine PATTERN_MACHINE = new PatternMachine(100, 23, 300, true);
     

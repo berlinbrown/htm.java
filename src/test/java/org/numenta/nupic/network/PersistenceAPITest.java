@@ -94,6 +94,8 @@ import rx.observers.TestObserver;
 
 
 public class PersistenceAPITest extends ObservableTestBase {
+    // These tests save HTM objects to disk, load them again, and verify that the
+    // restored network has the same state and continues producing the same output.
     // TO TURN ON PRINTOUT: SET "TRUE" BELOW
     /** Printer to visualize DayOfWeek printouts - SET TO TRUE FOR PRINTOUT */
     private BiFunction<Inference, Integer, Integer> dayOfWeekPrintout = createDayOfWeekInferencePrintout(false);

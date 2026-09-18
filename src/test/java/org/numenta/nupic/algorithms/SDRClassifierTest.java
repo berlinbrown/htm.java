@@ -21,6 +21,8 @@ import com.cedarsoftware.util.DeepEquals;
 import gnu.trove.list.array.TIntArrayList;
 
 public class SDRClassifierTest {
+    // These tests verify that learned sparse patterns produce the expected
+    // bucket predictions, probabilities, and multi-step forecasts.
     private SDRClassifier classifier;
 
     /**

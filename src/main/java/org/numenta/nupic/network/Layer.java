@@ -176,6 +176,8 @@ import rx.subjects.PublishSubject;
  * @author David Ray
  */
 public class Layer<T> implements Persistable {
+    // Plain English: one stage in the pipeline. A Layer accepts an input,
+    // runs its configured HTM algorithms, and emits an Inference result.
     private static final long serialVersionUID = 1L;
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(Layer.class);

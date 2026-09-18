@@ -47,6 +47,8 @@ import java.util.stream.IntStream;
  * @author David Ray
  */
 public class ArrayUtils {
+    // Plain English: common operations for the primitive arrays used throughout
+    // HTM, kept here to avoid boxing numbers into slower Java collections.
     /** Empty array constant */
     private static int[] EMPTY_ARRAY = new int[0];
     

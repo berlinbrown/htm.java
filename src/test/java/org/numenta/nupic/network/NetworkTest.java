@@ -65,6 +65,8 @@ import rx.observers.TestObserver;
 
 
 public class NetworkTest extends ObservableTestBase {
+    // These tests verify the whole coordinator: wiring Regions and Layers,
+    // starting input, publishing results, restarting, and resetting state.
     private int[][] dayMap = new int[][] { 
         new int[] { 1, 1, 0, 0, 0, 0, 0, 1 }, // Sunday
         new int[] { 1, 1, 1, 0, 0, 0, 0, 0 }, // Monday

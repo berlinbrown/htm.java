@@ -161,6 +161,8 @@ import rx.Subscriber;
  * @see NetworkAPIDemo
  */
 public class Network implements Persistable {
+    // Plain English: this is the top-level coordinator. It owns Regions,
+    // starts and stops processing, and publishes each completed inference.
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Network.class);

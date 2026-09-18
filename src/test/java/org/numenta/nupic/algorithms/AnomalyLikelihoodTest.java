@@ -314,6 +314,8 @@ public class AnomalyLikelihoodTest {
         assertEquals(metrics2.getLikelihoods().length, data2.size());
         assertEquals(metrics2.getAvgRecordList().size(), data2.size());
         assertTrue(an.isValidEstimatorParams(metrics2.getParams()));
+        // Only the five newest values should be carried into the next update.
+        assertEquals(5, metrics2.getParams().historicalLikelihoods().length);
         
         // The new running total should be different
         assertFalse(metrics1.getAvgRecordList().total == metrics2.getAvgRecordList().total);
@@ -334,6 +336,8 @@ public class AnomalyLikelihoodTest {
         assertEquals(metrics3.getLikelihoods().length, data3.size());
         assertEquals(metrics3.getAvgRecordList().size(), data3.size());
         assertTrue(an.isValidEstimatorParams(metrics3.getParams()));
+        // The saved history must stay bounded as more samples arrive.
+        assertEquals(5, metrics3.getParams().historicalLikelihoods().length);
         
         // The new running total should be different
         assertFalse(metrics1.getAvgRecordList().total == metrics3.getAvgRecordList().total);
@@ -461,6 +465,11 @@ public class AnomalyLikelihoodTest {
         }catch(Exception e) {
             assertTrue(e.getMessage().equals("Must have at least one anomaly score."));
         }
+    }
+
+    @Test
+    public void testFilterLikelihoodsAcceptsEmptyInput() {
+        assertEquals(0, an.filterLikelihoods(new double[0]).length);
     }
     
     /**

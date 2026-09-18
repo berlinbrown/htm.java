@@ -59,6 +59,8 @@ import gnu.trove.set.hash.TIntHashSet;
  *
  */
 public class SpatialPooler implements Persistable {
+    // Plain English: choose a small, stable set of winning columns for each
+    // input pattern. Similar inputs should produce overlapping winners.
     /** Default Serial Version  */
     private static final long serialVersionUID = 1L;
 

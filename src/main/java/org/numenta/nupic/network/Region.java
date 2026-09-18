@@ -67,6 +67,8 @@ import rx.Subscriber;
  *
  */
 public class Region implements Persistable {
+    // Plain English: a Region is a named group of Layers. It connects their
+    // outputs and inputs so information can move through a larger network.
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Region.class);

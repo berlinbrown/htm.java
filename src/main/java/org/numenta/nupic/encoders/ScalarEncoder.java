@@ -159,6 +159,9 @@ import org.slf4j.LoggerFactory;
  */
 public class ScalarEncoder extends Encoder<Double> {
 
+    // Plain English: represent one numeric value as a short band of ON bits.
+    // Moving the value moves the band, so similar values share many ON bits.
+
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ScalarEncoder.class);

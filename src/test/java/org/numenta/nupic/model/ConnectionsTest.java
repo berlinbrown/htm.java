@@ -26,6 +26,8 @@ import org.numenta.nupic.util.MersenneTwister;
 import com.cedarsoftware.util.DeepEquals;
 
 public class ConnectionsTest {
+    // These tests exercise the HTM "memory cabinet": columns, cells, segments,
+    // synapses, and the rules for creating, reusing, and removing them.
     @Test
     public void testSegmentPositionForSortKey() {
         Parameters retVal = Parameters.getTemporalDefaultParameters();

@@ -88,6 +88,8 @@ import gnu.trove.map.hash.TObjectIntHashMap;
  * @param <T>   the input type (i.e. File, URL, etc.)
  */
 public class HTMSensor<T> implements Sensor<T>, Serializable {
+    // Plain English: this is the network's front door. It reads raw rows from a
+    // source, converts each field into bits, and sends those bits into a Layer.
     private static final long serialVersionUID = 1L;
     
     private boolean encodersInitted;
@@ -692,4 +694,3 @@ public class HTMSensor<T> implements Sensor<T>, Serializable {
     }
 
 }
-

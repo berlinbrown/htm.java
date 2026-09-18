@@ -161,15 +161,27 @@ public class BatchedCsvStreamTest {
     
     @Test
     public void testHeaderFormationWhenSynchronous() {
+        int headerSize = 3;
+        BatchedCsvStream<String[]> csv = BatchedCsvStream.batch(makeStream(), 2, false, headerSize);
+        assertFalse(csv.isParallel());
+        assertFalse(csv.stream().isParallel());
+        BatchedCsvHeader header = csv.getHeader();
+        assertEquals(headerSize, header.size());
+    }
+
+    @Test
+    public void testBatchSizeMustBePositive() {
+        // Neither "zero rows per worker" nor a negative chunk has a useful meaning.
+        assertInvalidBatchSize(0);
+        assertInvalidBatchSize(-1);
+    }
+
+    private void assertInvalidBatchSize(int batchSize) {
         try {
-            int headerSize = 3;
-            BatchedCsvStream<String[]> csv = BatchedCsvStream.batch(makeStream(), 2, false, headerSize);
-            assertFalse(csv.isParallel());
-            assertFalse(csv.stream().isParallel());
-            BatchedCsvHeader header = csv.getHeader();
-            assertEquals(headerSize, header.size());
-        }catch(Exception e) {
-            
+            BatchedCsvStream.batch(makeStream(), batchSize, true, 3);
+            fail("Expected invalid batch size to be rejected");
+        }catch(IllegalArgumentException e) {
+            assertEquals("batchSize must be greater than zero", e.getMessage());
         }
     }
 

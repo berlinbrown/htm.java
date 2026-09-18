@@ -88,6 +88,9 @@ import gnu.trove.list.array.TIntArrayList;
  */
 public class DateEncoder extends Encoder<DateTime> {
 
+    // Plain English: break a date into useful repeating clues such as time of
+    // day, day of week, or season, then encode those clues as sparse bits.
+
     private static final long serialVersionUID = 1L;
 
     protected int width;

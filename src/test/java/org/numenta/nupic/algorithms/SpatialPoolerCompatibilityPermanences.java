@@ -2,6 +2,8 @@ package org.numenta.nupic.algorithms;
 
 
 public class SpatialPoolerCompatibilityPermanences {
+    // These are known-good synapse strengths captured from the reference
+    // implementation. Compatibility tests compare Java's learning against them.
 	public double[][] getPermanences0() {
 		return new double[][] {
 			{ 0.0, 0.0, 0.74377, 0.0, 0.0, 0.062710002, 0.0623, 0.81379002, 0.0, 0.0, 0.51138997, 0.99207997, 0.0, 0.080179997, 0.0, 0.0 },

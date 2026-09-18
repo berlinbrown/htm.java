@@ -62,6 +62,8 @@ import com.cedarsoftware.util.DeepEquals;
  * @see ComputeCycle
  */
 public class Parameters implements Persistable {
+    // Plain English: one typed configuration bag for encoder, Spatial Pooler,
+    // Temporal Memory, and network settings.
     /** keep it simple */
     private static final long serialVersionUID = 1L;
     

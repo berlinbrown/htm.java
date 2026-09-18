@@ -85,6 +85,9 @@ import gnu.trove.list.array.TIntArrayList;
  */
 public abstract class Encoder<T>  implements Persistable {
 
+    // Plain English: all encoders translate real-world values into sparse bit
+    // patterns that HTM algorithms can compare and learn from.
+
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Encoder.class);

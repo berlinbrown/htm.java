@@ -59,6 +59,8 @@ import org.numenta.nupic.util.Tuple;
  *
  */
 public class HTMSensorTest {
+    // These tests protect the sensor's front-door behavior: reading metadata,
+    // constructing encoders, and turning input records into usable bit arrays.
     private Map<String, Map<String, Object>> setupMap(
         Map<String, Map<String, Object>> map,
             int n, int w, double min, double max, double radius, double resolution, Boolean periodic,

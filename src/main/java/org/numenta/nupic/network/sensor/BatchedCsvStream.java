@@ -96,6 +96,8 @@ import org.slf4j.LoggerFactory;
  * @param <T> The Type of data on each line of this Stream (String[] for this implementation)
  */
 public class BatchedCsvStream<T> implements MetaStream<T>, Serializable {
+    // Plain English: read CSV rows in numbered chunks. Numbering lets callers
+    // restore the original row order after chunks are processed in parallel.
     /**
      * 
      */
@@ -602,8 +604,10 @@ public class BatchedCsvStream<T> implements MetaStream<T>, Serializable {
      * @param isParallel            if true, batching will take place, otherwise not
      * @param headerLength          number of header lines
      * @return
+     * @throws IllegalArgumentException if {@code batchSize} is zero or negative
      */
     public static BatchedCsvStream<String[]> batch(Stream<String> stream, int batchSize, boolean isParallel, int headerLength) {
+        validateBatchSize(batchSize);
         //Notice the Type of the Stream becomes String[] - This is an important optimization for 
         //parsing the sequence number later. (to avoid calling String.split() on each entry)
         //Initializes and creates the CsvHeader here:
@@ -623,8 +627,10 @@ public class BatchedCsvStream<T> implements MetaStream<T>, Serializable {
      * @param headerLength          number of header lines
      * @param characteristics       stream configuration parameters (see {@link Spliterator#characteristics()})
      * @return
+     * @throws IllegalArgumentException if {@code batchSize} is zero or negative
      */
     public static BatchedCsvStream<String[]> batch(Stream<String> stream, int batchSize, boolean isParallel, int headerLength, int characteristics) {
+        validateBatchSize(batchSize);
         //Notice the Type of the Stream becomes String[] - This is an important optimization for 
         //parsing the sequence number later. (to avoid calling String.split() on each entry MULTIPLE TIMES (for the eventual sort))
         //Initializes and creates the CsvHeader here:
@@ -633,6 +639,14 @@ public class BatchedCsvStream<T> implements MetaStream<T>, Serializable {
             StreamSupport.stream(batchedSpliterator(csv, batchSize, isParallel, characteristics), isParallel);
         csv.delegate = s;
         return csv;
+    }
+
+    private static void validateBatchSize(int batchSize) {
+        // A worker cannot receive an empty chunk. Without this check, a size of
+        // zero eventually causes a much less helpful array-index exception.
+        if(batchSize <= 0) {
+            throw new IllegalArgumentException("batchSize must be greater than zero");
+        }
     }
     
     /**
@@ -879,5 +893,3 @@ public class BatchedCsvStream<T> implements MetaStream<T>, Serializable {
         csv.continuation(false).forEach(l -> System.out.println("line: " + Arrays.toString(l)));
     }
 }
-
-

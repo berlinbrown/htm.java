@@ -88,6 +88,8 @@ import org.slf4j.LoggerFactory;
  */
 
 public class RandomDistributedScalarEncoder extends Encoder<Double> {
+	// Plain English: turn a number into a sparse pattern of ON bits. Nearby
+	// numbers receive similar patterns, while distant numbers look less alike.
 
 	private static final long serialVersionUID = 1L;
 

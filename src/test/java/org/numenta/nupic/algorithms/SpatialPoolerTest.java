@@ -46,6 +46,8 @@ import gnu.trove.list.array.TIntArrayList;
 import gnu.trove.set.hash.TIntHashSet;
 
 public class SpatialPoolerTest {
+    // These tests use small inputs to verify winner selection, inhibition,
+    // boosting, and the strengthening or weakening of synapses during learning.
     private Parameters parameters;
     private SpatialPooler sp;
     private Connections mem;

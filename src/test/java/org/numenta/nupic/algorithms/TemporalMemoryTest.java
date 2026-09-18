@@ -28,6 +28,8 @@ import org.numenta.nupic.util.UniversalRandom;
 import org.nustaq.serialization.FSTConfiguration;
 
 public class TemporalMemoryTest {
+    // These tests build tiny, inspectable cell networks and verify when cells
+    // activate, predict, burst, learn new links, or remove old links.
 
     private Parameters getDefaultParameters() {
         Parameters retVal = Parameters.getTemporalDefaultParameters();

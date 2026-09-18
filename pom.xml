@@ -32,7 +32,7 @@
 	</developers>
 
 	<properties>
-		<argLine>-Xmx1048m -Xms700m</argLine>
+		<argLine>-Xmx1048m -Xms700m --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED --add-opens java.base/java.math=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.sql/java.sql=ALL-UNNAMED</argLine>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -166,6 +166,14 @@
 	            <configuration>
 	                <mainClass>org.numenta.nupic.integration.driver.ExtensiveTemporalMemoryTestDriver</mainClass>
 	            </configuration>
+	            <executions>
+	                <execution>
+	                    <id>visualizer</id>
+	                    <configuration>
+	                        <mainClass>org.numenta.nupic.integration.driver.TemporalMemorySwingVisualizer</mainClass>
+	                    </configuration>
+	                </execution>
+	            </executions>
         	</plugin>
 					
 		</plugins>
