@@ -127,21 +127,23 @@
 			<artifactId>jmh-core</artifactId>
 			<version>1.11.3</version>
 		</dependency>
-		<dependency>
-			<groupId>algorithmfoundry</groupId>
-			<artifactId>algorithmfoundry-shade-culled</artifactId>
-			<version>1.3</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>algorithmfoundry</groupId>
-		    <artifactId>algorithmfoundry-shade-culled</artifactId>
-		    <version>1.3</version>
-		    <scope>system</scope>
-		    <systemPath>${project.basedir}/libs/algorithmfoundry-shade-culled-1.3.jar</systemPath>
-		</dependency>
+        <!-- Custom matrix methods in this bundled library are used by SDRClassifier.
+             Resolve it from the bundled repository so consumers need no systemPath. -->
+        <dependency>
+            <groupId>algorithmfoundry</groupId>
+            <artifactId>algorithmfoundry-shade-culled</artifactId>
+            <version>1.3</version>
+        </dependency>
 	</dependencies>
 
+    <!-- Bootstrap the non-Central custom library from the checked-in repository.
+         Maven caches it locally when building this project. -->
+    <repositories>
+        <repository>
+            <id>bundled-algorithmfoundry</id>
+            <url>file://${project.basedir}/libs/repository</url>
+        </repository>
+    </repositories>
 	<build>
 		<plugins>
 			<plugin>
