@@ -364,6 +364,20 @@ Maven network/cache errors: allow the initial dependency download, then retry.
 
 Source: local NAB checkout at commit
 `ea702d75cc2258d9d7dd35ca8e5e2539d71f3140`.
-See [NOTICE.md](NOTICE.md) and [NAB-LICENSE.txt](NAB-LICENSE.txt) for attribution.
+See [LICENSE.txt](LICENSE.txt), [NAB-LICENSE.txt](NAB-LICENSE.txt), and
+[NOTICE.md](NOTICE.md) for license terms and attribution. Keep all three files
+when copying or redistributing this workbench.
 Dataset selection is fixed and bundled; neither build nor execution needs
 `/Users/berlinbrown/src/NAB` to exist.
+
+## Copying and redistribution
+
+Copy the entire `numentaworkbench` directory, including these files:
+
+- `LICENSE.txt`: GNU AGPLv3 terms supplied with htm.java and this workbench.
+- `NAB-LICENSE.txt`: Numenta's MIT terms for NAB-derived material.
+- `NOTICE.md`: exact NAB source commit and a list of copied or ported material.
+
+Do not copy only the JAR and omit these files when redistributing the workbench.
+The generated Maven JAR contains executable code and resources, while these
+top-level files provide the human-readable license and provenance record.

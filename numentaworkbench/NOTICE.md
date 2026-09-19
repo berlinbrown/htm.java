@@ -6,8 +6,10 @@ ea702d75cc2258d9d7dd35ca8e5e2539d71f3140.
 
 Upstream copyright: Numenta Inc., 2014–2024. The MIT license is reproduced in
 NAB-LICENSE.txt. Preserve it when redistributing these files.
-The enclosing htm.java repository has its own license; this notice does not
-relicense that repository.
+The workbench uses htm.java and is distributed with the GNU Affero General
+Public License version 3 in LICENSE.txt. NAB-derived detector ports, datasets,
+labels, and reference results retain Numenta's MIT license in NAB-LICENSE.txt.
+This notice does not relicense either body of work.
 
 Ported Python sources:
 - nab/detectors/gaussian/windowedGaussian_detector.py (2016)
