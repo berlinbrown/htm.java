@@ -2084,8 +2084,11 @@ public class ArrayUtils {
      */
     public static int[] or(int[] arg1, int[] arg2) {
         int[] retVal = new int[Math.max(arg1.length, arg2.length)];
-        for (int i = 0; i < arg1.length; i++) {
-            retVal[i] = arg1[i] > 0 || arg2[i] > 0 ? 1 : 0;
+        for (int i = 0; i < retVal.length; i++) {
+            // Treat a missing position in the shorter array as an OFF bit.
+            boolean firstIsOn = i < arg1.length && arg1[i] > 0;
+            boolean secondIsOn = i < arg2.length && arg2[i] > 0;
+            retVal[i] = firstIsOn || secondIsOn ? 1 : 0;
         }
         return retVal;
     }
@@ -2100,8 +2103,12 @@ public class ArrayUtils {
      */
     public static int[] and(int[] arg1, int[] arg2) {
         int[] retVal = new int[Math.max(arg1.length, arg2.length)];
-        for (int i = 0; i < arg1.length; i++) {
-            retVal[i] = arg1[i] > 0 && arg2[i] > 0 ? 1 : 0;
+        for (int i = 0; i < retVal.length; i++) {
+            // A bit can be ON in the result only when it exists and is ON in
+            // both inputs. Extra positions therefore remain OFF.
+            boolean firstIsOn = i < arg1.length && arg1[i] > 0;
+            boolean secondIsOn = i < arg2.length && arg2[i] > 0;
+            retVal[i] = firstIsOn && secondIsOn ? 1 : 0;
         }
         return retVal;
     }

@@ -39,11 +39,15 @@ public class Encoding extends Tuple {
     /**
      * Constructs a new {@code EncoderResult}
      *
-     * @param value    A representation of the encoded value in the same format as the input
+     * @param value    A representation of the encoded value in the same format as
+     *                 the input
      *                 (i.e. float for scalars, string for categories)
-     * @param scalar   A representation of the encoded value as a number. All encoded values
-     *                 are represented as some form of numeric value before being encoded
-     *                 (e.g. for categories, this is the internal index used by the encoder)
+     * @param scalar   A representation of the encoded value as a number. All
+     *                 encoded values
+     *                 are represented as some form of numeric value before being
+     *                 encoded
+     *                 (e.g. for categories, this is the internal index used by the
+     *                 encoder)
      * @param encoding The bit-string representation of the value
      */
     public Encoding(Object value, Number scalar, int[] encoding) {
@@ -52,13 +56,13 @@ public class Encoding extends Tuple {
 
     @Override
     public String toString() {
-        return new StringBuilder("EncoderResult(value=").
-                append(get(1)).append(", scalar=").append(get(2)).
-                append(", encoding=").append(get(3)).toString();
+        return new StringBuilder("EncoderResult(value=").append(get(1)).append(", scalar=").append(get(2))
+                .append(", encoding=").append(get(3)).toString();
     }
 
     /**
-     * Returns a representation of the encoded value in the same format as the input.
+     * Returns a representation of the encoded value in the same format as the
+     * input.
      *
      * @return the encoded value
      */
@@ -72,7 +76,7 @@ public class Encoding extends Tuple {
      * @return
      */
     public Number getScalar() {
-        return (Number)get(2);
+        return (Number) get(2);
     }
 
     /**
@@ -81,10 +85,11 @@ public class Encoding extends Tuple {
      * @return
      */
     public int[] getEncoding() {
-        return (int[])get(3);
+        return (int[]) get(3);
     }
 
-    @Override public boolean equals(Object obj) {
+    @Override
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -94,14 +99,14 @@ public class Encoding extends Tuple {
         if (!(obj instanceof Encoding)) {
             return false;
         }
-        Encoding other = (Encoding)obj;
+        Encoding other = (Encoding) obj;
         if (!this.getScalar().equals(other.getScalar())) {
             return false;
         }
         if (!this.getValue().equals(other.getValue())) {
             return false;
         }
-        if(!Arrays.equals(this.getEncoding(), other.getEncoding())){
+        if (!Arrays.equals(this.getEncoding(), other.getEncoding())) {
             return false;
         }
         return true;

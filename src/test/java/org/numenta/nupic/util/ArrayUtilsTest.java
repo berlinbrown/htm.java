@@ -577,6 +577,26 @@ public class ArrayUtilsTest {
 		result = ArrayUtils.and(a, b);
 		assertTrue(Arrays.equals(expected, result));
 	}
+
+    @Test
+    public void testAndWithDifferentLengthArrays() {
+        assertArrayEquals(
+            new int[] { 1, 0, 0 },
+            ArrayUtils.and(new int[] { 1 }, new int[] { 1, 1, 1 }));
+        assertArrayEquals(
+            new int[] { 1, 0, 0 },
+            ArrayUtils.and(new int[] { 1, 1, 1 }, new int[] { 1 }));
+    }
+
+    @Test
+    public void testOrWithDifferentLengthArrays() {
+        assertArrayEquals(
+            new int[] { 1, 1, 1 },
+            ArrayUtils.or(new int[] { 1 }, new int[] { 0, 1, 1 }));
+        assertArrayEquals(
+            new int[] { 1, 1, 1 },
+            ArrayUtils.or(new int[] { 0, 1, 1 }, new int[] { 1 }));
+    }
 	
 	@Test
 	public void testBitsToString() {

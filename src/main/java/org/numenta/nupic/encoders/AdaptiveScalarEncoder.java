@@ -53,15 +53,15 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
      * {@inheritDoc}
      *
      * @see org.numenta.nupic.encoders.ScalarEncoder#initEncoder(int, double,
-     * double, int, double, double)
+     *      double, int, double, double)
      */
     @Override
     public void initEncoder(int w, double minVal, double maxVal, int n,
-        double radius, double resolution) {
+            double radius, double resolution) {
         this.encLearningEnabled = true;
-        if(this.periodic) {
+        if (this.periodic) {
             throw new IllegalStateException(
-                "Adaptive scalar encoder does not encode periodic inputs");
+                    "Adaptive scalar encoder does not encode periodic inputs");
         }
         assert n != 0;
         super.initEncoder(w, minVal, maxVal, n, radius, resolution);
@@ -88,7 +88,8 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
      * {@code AdaptiveScalarEncoder}s.
      */
     public static class Builder extends Encoder.Builder<AdaptiveScalarEncoder.Builder, AdaptiveScalarEncoder> {
-        private Builder() {}
+        private Builder() {
+        }
 
         @Override
         public AdaptiveScalarEncoder build() {
@@ -121,21 +122,21 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
     @Override
     public void encodeIntoArray(Double input, int[] output) {
         this.recordNum += 1;
-        boolean learn = false;
-        if (!this.encLearningEnabled) {
-            learn = true;
-        }
         if (input == AdaptiveScalarEncoder.SENTINEL_VALUE_FOR_MISSING_DATA) {
             Arrays.fill(output, 0);
-        } else if (!Double.isNaN(input)) {
-            this.setMinAndMax(input, learn);
+        } else if (!Double.isNaN(input) && this.encLearningEnabled) {
+            // Adapting min/max is learning. When learning is disabled, preserve
+            // the range and history so inference cannot quietly change the model.
+            this.setMinAndMax(input);
         }
         super.encodeIntoArray(input, output);
     }
 
-    private void setMinAndMax(Double input, boolean learn) {
+    private void setMinAndMax(Double input) {
         if (slidingWindow.length >= windowSize) {
-            slidingWindow = deleteItem(slidingWindow, 0);
+            // The window is a queue: forget exactly one oldest value before
+            // appending the newest value below.
+            slidingWindow = removeOldestItem(slidingWindow);
         }
         slidingWindow = appendItem(slidingWindow, input);
 
@@ -150,13 +151,13 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
             double maxOverWindow = sorted[sorted.length - 1];
             if (minOverWindow < this.minVal) {
                 LOGGER.trace("Input {}={} smaller than minVal {}. Adjusting minVal to {}",
-                                this.name, input, this.minVal, minOverWindow);
+                        this.name, input, this.minVal, minOverWindow);
                 this.minVal = minOverWindow;
                 setEncoderParams();
             }
             if (maxOverWindow > this.maxVal) {
                 LOGGER.trace("Input {}={} greater than maxVal {}. Adjusting maxVal to {}",
-                                this.name, input, this.minVal, minOverWindow);
+                        this.name, input, this.maxVal, maxOverWindow);
                 this.maxVal = maxOverWindow;
                 setEncoderParams();
             }
@@ -178,9 +179,8 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
         return a;
     }
 
-    private Double[] deleteItem(Double[] a, int i) {
-        a = Arrays.copyOfRange(a, 1, a.length - 1);
-        return a;
+    private Double[] removeOldestItem(Double[] values) {
+        return Arrays.copyOfRange(values, 1, values.length);
     }
 
     /**
@@ -202,17 +202,13 @@ public class AdaptiveScalarEncoder extends ScalarEncoder {
 
     private int[] calculateBucketIndices(double input) {
         this.recordNum += 1;
-        boolean learn = false;
-        if (!this.encLearningEnabled) {
-            learn = true;
-        }
         if ((Double.isNaN(input)) && (Double.valueOf(input) instanceof Double)) {
             input = AdaptiveScalarEncoder.SENTINEL_VALUE_FOR_MISSING_DATA;
         }
         if (input == AdaptiveScalarEncoder.SENTINEL_VALUE_FOR_MISSING_DATA) {
             return new int[this.n];
-        } else {
-            this.setMinAndMax(input, learn);
+        } else if (this.encLearningEnabled) {
+            this.setMinAndMax(input);
         }
         return super.getBucketIndices(input);
     }

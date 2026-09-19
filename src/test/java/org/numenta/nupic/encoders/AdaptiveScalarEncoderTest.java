@@ -147,6 +147,38 @@ public class AdaptiveScalarEncoderTest {
 		int[] expected = new int[14];
 		assertTrue(Arrays.equals(expected, empty));
 	}
+
+    @Test
+    public void testSlidingWindowKeepsConfiguredSizeAndNewestValues() {
+        initASE();
+        ase.windowSize = 3;
+
+        ase.encode(1.0);
+        ase.encode(2.0);
+        ase.encode(3.0);
+        ase.encode(4.0);
+        ase.encode(5.0);
+
+        // A three-item window should behave like [oldest, ..., newest].
+        assertEquals(Arrays.asList(3.0, 4.0, 5.0), Arrays.asList(ase.slidingWindow));
+    }
+
+    @Test
+    public void testDisabledLearningDoesNotChangeAdaptiveState() {
+        ase = AdaptiveScalarEncoder.adaptiveBuilder().n(14).w(3).minVal(1)
+            .maxVal(8).radius(1.5).resolution(0.5).periodic(false)
+            .clipInput(true).forced(true).build();
+        ase.encode(4.0);
+        Double[] historyBeforeInference = Arrays.copyOf(
+            ase.slidingWindow, ase.slidingWindow.length);
+        double maxBeforeInference = ase.getMaxVal();
+
+        ase.setLearningEnabled(false);
+        ase.encode(100.0);
+
+        assertEquals(maxBeforeInference, ase.getMaxVal(), 0.0);
+        assertTrue(Arrays.equals(historyBeforeInference, ase.slidingWindow));
+    }
 	
 	@Test
 	public void testNonPeriodicEncoderMinMaxSpec() {
